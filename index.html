@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My 21st Birthday 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      padding: 60px 20px 30px;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      font-weight: 300;
+      margin-bottom: 2em;
+    }
+
+    .balloons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .balloon {
+      width: 60px;
+      height: 80px;
+      background-color: #ff6b6b;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      position: absolute;
+      bottom: -100px;
+      animation: floatUp 10s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {transform: translateY(100%);}
+      100% {transform: translateY(-150vh);}
+    }
+
+    section {
+      padding: 40px 20px;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      border-radius: 20px;
+      max-width: 800px;
+    }
+
+    .photos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .photos img {
+      width: 250px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    footer {
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.2);
+      border-top: 1px solid rgba(255,255,255,0.3);
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 2em; }
+      h2 { font-size: 1em; }
+      .photos img { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="balloons">
+    <div class="balloon" style="left:10%; animation-delay: 0s; background:#ff6b6b;"></div>
+    <div class="balloon" style="left:30%; animation-delay: 1s; background:#feca57;"></div>
+    <div class="balloon" style="left:50%; animation-delay: 2s; background:#48dbfb;"></div>
+    <div class="balloon" style="left:70%; animation-delay: 3s; background:#1dd1a1;"></div>
+    <div class="balloon" style="left:90%; animation-delay: 4s; background:#5f27cd;"></div>
+  </div>
+
+  <header>
+    <h1>🎉 It's My 21st Birthday! 🎂</h1>
+    <h2>Join me for a night to remember — because turning 21 only happens once!</h2>
+  </header>
+
+  <section id="location">
+    <h2>📍 Party Location</h2>
+    <p>Venue: The Celebration Hall, MG Road, Kochi, Kerala</p>
+    <p>Date: April 20th, 2025 | Time: 7 PM Onwards</p>
+  </section>
+
+  <section id="photos">
+    <h2>📸 Memories & Moments</h2>
+    <div class="photos">
+      <!-- Add your photo URLs here -->
+      <img src="https://via.placeholder.com/300x200.png?text=Photo+1" alt="Photo 1">
+      <img src="https://via.placeholder.com/300x200.png?text=Photo+2" alt="Photo 2">
+      <img src="https://via.placeholder.com/300x200.png?text=Photo+3" alt="Photo 3">
+    </div>
+  </section>
+
+  <footer>
+    <p>With love,</p>
+    <h3>[Your Name]</h3>
+  </footer>
+</body>
+</html>

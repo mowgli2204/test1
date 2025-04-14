@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My 21st Birthday 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    h1, h2 {
+      margin-bottom: 0.5em;
+    }
+
+    section {
+      padding: 40px 20px;
+      background-color: rgba(0, 0, 0, 0.1);
+      margin: 20px auto;
+      border-radius: 20px;
+      max-width: 800px;
+    }
+
+    input, textarea, select, button {
+      padding: 10px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      font-size: 1em;
+    }
+
+    button {
+      background-color: #ff6b6b;
+      color: white;
+      cursor: pointer;
+    }
+
+    .entry {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      margin: 10px auto;
+      border-radius: 12px;
+      max-width: 500px;
+    }
+
+    .quiz-result {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🎂 It's My 21st Birthday! 🎈</h1>
+    <h2>Join me for a night to remember — because turning 21 only happens once!</h2>
+  </header>
+
+  <!-- 📘 Guest Book Section -->
+  <section>
+    <h2>📘 Guest Book</h2>
+    <form id="guestForm">
+      <input type="text" id="guestName" placeholder="Your Name" required><br>
+      <textarea id="guestWish" placeholder="Your Birthday Wish..." required></textarea><br>
+      <textarea id="guestMemory" placeholder="Your Best Memory With Me..." required></textarea><br>
+      <button type="submit">Submit Wish</button>
+    </form>
+    <div id="guestEntries"></div>
+  </section>
+
+  <!-- 🧠 How Well Do You Know Me Quiz -->
+  <section>
+    <h2>🧠 How Well Do You Know Me?</h2>
+    <form id="quizForm">
+      <p>1. What’s my favorite color?</p>
+      <select id="q1">
+        <option value="">--Choose--</option>
+        <option value="a">Blue</option>
+        <option value="b">Red</option>
+        <option value="c">Black</option>
+      </select>
+
+      <p>2. What’s my dream travel destination?</p>
+      <select id="q2">
+        <option value="">--Choose--</option>
+        <option value="a">Paris</option>
+        <option value="b">Tokyo</option>
+        <option value="c">New York</option>
+      </select>
+
+      <p>3. What food can I never say no to?</p>
+      <select id="q3">
+        <option value="">--Choose--</option>
+        <option value="a">Pizza</option>
+        <option value="b">Biryani</option>
+        <option value="c">Ice Cream</option>
+      </select><br>
+
+      <button type="submit">Submit Quiz</button>
+    </form>
+    <div class="quiz-result" id="quizResult"></div>
+  </section>
+
+  <footer>
+    <p>Made with ❤️ for my 21st Birthday</p>
+  </footer>
+
+  <script>
+    // 💌 Guest Book Script
+    const guestForm = document.getElementById('guestForm');
+    const guestEntries = document.getElementById('guestEntries');
+
+    guestForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('guestName').value;
+      const wish = document.getElementById('guestWish').value;
+      const memory = document.getElementById('guestMemory').value;
+
+      const entry = document.createElement('div');
+      entry.className = 'entry';
+      entry.innerHTML = `<strong>${name}</strong><br>
+                         🎉 "${wish}"<br>
+                         🧠 Best memory: <em>${memory}</em>`;
+      guestEntries.prepend(entry);
+
+      guestForm.reset();
+    });
+
+    // 🧠 Quiz Logic
+    const quizForm = document.getElementById('quizForm');
+    const quizResult = document.getElementById('quizResult');
+
+    quizForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const q1 = document.getElementById('q1').value;
+      const q2 = document.getElementById('q2').value;
+      const q3 = document.getElementById('q3').value;
+
+      let score = 0;
+      if (q1 === 'b') score++;  // Let's say 'Red' is fav
+      if (q2 === 'b') score++;  // 'Tokyo'
+      if (q3 === 'a') score++;  // 'Pizza'
+
+      let msg = '';
+      if (score === 3) msg = "🔥 You're my bestie! You know me so well!";
+      else if (score === 2) msg = "😎 Pretty good! You know me quite well!";
+      else msg = "😂 You tried... but we need more hangouts!";
+
+      quizResult.textContent = `You scored ${score}/3. ${msg}`;
+    });
+  </script>
+</body>
+</html>
